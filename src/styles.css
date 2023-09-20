@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  padding-top: 56px;
+  background-image: url('assets/free-superhero-wallpaper.jpg');
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    background-size: cover;
+}
+
+@media(max-width: 666px) {
+  body{
+    padding-top: 95px;
+  }
+}
+
+
+.img-bkg{
+
+    background-image: url('assets/free-superhero-wallpaper.jpg');
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    background-size: cover;
+}
