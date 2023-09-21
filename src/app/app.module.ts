@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuNavBarComponent } from './components/menu-nav-bar/menu-nav-bar.component';
 import { WelcomeSectionComponent } from './components/welcome-section/welcome-section.component';
+import { SmallcardListComponent } from './components/smallcard-list/smallcard-list.component';
+import { SmallcardItemComponent } from './components/smallcard-item/smallcard-item.component';
+import { BigCardComponent } from './components/big-card/big-card.component';
 
 
 @NgModule({
@@ -14,6 +17,9 @@ import { WelcomeSectionComponent } from './components/welcome-section/welcome-se
     HomeComponent,
     MenuNavBarComponent,
     WelcomeSectionComponent,
+    SmallcardListComponent,
+    SmallcardItemComponent,
+    BigCardComponent,
 
   ],
   imports: [
