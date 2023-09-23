@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Personagem } from 'src/app/model/personagem.model';
 
 @Component({
   selector: 'app-smallcard-item',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmallcardItemComponent implements OnInit {
 
+  @Input() personagemsRecentes:Personagem[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+
+    console.log("Smallcard Item");
+
+    console.log(this.personagemsRecentes);
+
   }
 
 }

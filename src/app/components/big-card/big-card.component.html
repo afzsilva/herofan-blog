@@ -1,12 +1,10 @@
-<img class="img-fluid rounded mt-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." />
+<div class="d-flex justify-content-center">
+  <img class="img-fluid rounded mt-4 mb-lg-0" src="{{personagem.image.url}}" alt="..." />
+</div>
 
 <div class="card-body">
   <a class="text-decoration-none link-dark stretched-link" href="#">
-    <h5 class="card-title mb-3">Heroi Name</h5>
+    <h5 class="card-title mb-3">{{personagem.name}}</h5>
   </a>
-  <p class="card-text mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quisquam laboriosam
-    aliquam obcaecati fugit
-    rem perferendis harum corrupti, quaerat velit error quidem sunt porro quod iure officia enim ipsa architecto
-    aliquid atque omnis eos! Unde consequuntur atque assumenda nihil. Fugit consequatur quod culpa? Cupiditate
-    quia, quae possimus totam excepturi nam!</p>
+  <p class="card-text mb-0">{{personagem.biography.publisher}}</p>
 </div>

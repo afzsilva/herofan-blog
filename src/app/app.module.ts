@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { WelcomeSectionComponent } from './components/welcome-section/welcome-se
 import { SmallcardListComponent } from './components/smallcard-list/smallcard-list.component';
 import { SmallcardItemComponent } from './components/smallcard-item/smallcard-item.component';
 import { BigCardComponent } from './components/big-card/big-card.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { HerosBiglistComponent } from './components/heros-biglist/heros-biglist.component';
 
 
 @NgModule({
@@ -20,11 +23,15 @@ import { BigCardComponent } from './components/big-card/big-card.component';
     SmallcardListComponent,
     SmallcardItemComponent,
     BigCardComponent,
+    HerosBiglistComponent,
+
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
