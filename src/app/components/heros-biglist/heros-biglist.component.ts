@@ -11,8 +11,9 @@ import { ShareDataService } from 'src/app/services/util/share-data.service';
   styleUrls: ['./heros-biglist.component.css']
 })
 export class HerosBiglistComponent implements OnInit {
-  estrutura!:Personagems;
+  estrutura!:Personagems<Personagem>;
   bigListHeroes:Personagem[] = [];
+  personagemsPesquisados:Personagem[] = [];
 
 
   //dados paginação
@@ -25,12 +26,19 @@ export class HerosBiglistComponent implements OnInit {
               private shareDataService:ShareDataService) {}
 
   ngOnInit(): void {
+      this.carregarListaPersonagems();
+      this.carregarPersonagemsPequisados();
+  }
 
-    this.carregarListaPersonagems();
-
+  carregarPersonagemsPequisados(){
+    this.shareDataService.currentPersonagems.subscribe(personagems => {
+      this.bigListHeroes = personagems;
+      this.count = this.bigListHeroes.length
+    })
   }
 
   carregarListaPersonagems(){
+
     this.apiService.getListHeroes("A").subscribe({
       next:(value) =>{
           //value.forEach(e => console.log(e.name)
@@ -43,7 +51,9 @@ export class HerosBiglistComponent implements OnInit {
           console.log(err)
       },
     });
-  }
+
+
+  }//metodo
 
 
   aoSelecionarPersonagem(personagem:Personagem){

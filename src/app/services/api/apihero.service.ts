@@ -21,10 +21,9 @@ export class ApiheroService {
     return this.http.get<Personagem>(`${this.getCorsProxiedUrl(this._URL)}/${id}`);
   }
 
-  getListHeroes(caractere:string):Observable<Personagems>{
-    return this.http.get<Personagems>(`${this.getCorsProxiedUrl(this._URL)}/search/${caractere}`);
+  getListHeroes(caractere:string):Observable<Personagems<Personagem>>{
+    return this.http.get<Personagems<Personagem>>(`${this.getCorsProxiedUrl(this._URL)}/search/${caractere}`);
   }
-
 
  private getCorsProxiedUrl(url: string): string
  {

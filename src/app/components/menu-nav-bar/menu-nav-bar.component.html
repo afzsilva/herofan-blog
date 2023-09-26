@@ -4,9 +4,9 @@
 
     <a class="navbar-brand">HeroFan-Blog</a>
 
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Digite qualquer letra para buscar o personagem..."
-        aria-label="Search">
+    <form class="d-flex" role="search" (ngSubmit)="pesquisarListaPersonagems(nomePersonagemCarater.value)">
+      <input #nomePersonagemCarater class="form-control me-2" type="search"
+        placeholder="Digite qualquer letra para buscar o personagem..." aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Buscar</button>
     </form>
 

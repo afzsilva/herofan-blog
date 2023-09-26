@@ -1,7 +1,6 @@
 import { Personagem } from "./personagem.model";
 
-export interface Personagems{
-
+export interface Personagems<T>{
   results:Personagem[]
 
 }

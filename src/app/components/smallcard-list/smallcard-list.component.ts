@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Personagem } from 'src/app/model/personagem.model';
 import { ApiheroService } from 'src/app/services/api/apihero.service';
 
@@ -7,7 +7,7 @@ import { ApiheroService } from 'src/app/services/api/apihero.service';
   templateUrl: './smallcard-list.component.html',
   styleUrls: ['./smallcard-list.component.css']
 })
-export class SmallcardListComponent implements OnInit {
+export class SmallcardListComponent implements OnInit, AfterViewInit {
 
   recentes = new Array<Personagem>(3);
   personagemRetornado:Personagem;
@@ -27,6 +27,15 @@ export class SmallcardListComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  ngAfterViewInit(): void {
+    this.carregarTresUlimos();
+  }
+
+
+
+  carregarTresUlimos(){
     /*Chamar serviço 3 vezes com id aleatório*/
     for(let i=0; i < this.recentes.length;i++){
 

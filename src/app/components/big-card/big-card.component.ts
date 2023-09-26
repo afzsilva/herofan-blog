@@ -1,3 +1,4 @@
+import { Personagems } from './../../model/personagems-list.model';
 import { Component, OnInit } from '@angular/core';
 import { Personagem } from 'src/app/model/personagem.model';
 import { ApiheroService } from 'src/app/services/api/apihero.service';
@@ -11,6 +12,7 @@ import { ShareDataService } from 'src/app/services/util/share-data.service';
 export class BigCardComponent implements OnInit {
 
   personagem:Personagem;
+  personagems:Personagems<Personagem>[]=[];
 
   constructor(private apiService:ApiheroService, private sharedataService:ShareDataService) {
     this.personagem = {
@@ -30,9 +32,10 @@ export class BigCardComponent implements OnInit {
       this.personagem = personagem;
     })
 
+    this.sharedataService.currentPersonagems.subscribe(personagems => {
+      this.personagems = personagems;
+    })
     this.carregarPersonagem();
-
-
   }
 
   carregarPersonagem(){
@@ -45,9 +48,9 @@ export class BigCardComponent implements OnInit {
         biography: data.biography
       }
     })
-  }
+  }//metodo
 
-  private gerarIdAleatorioEnetre(inicio:number, fim:number):number{
+ private gerarIdAleatorioEnetre(inicio:number, fim:number):number{
     return Math.floor((Math.random() * fim) + inicio);
   }
 
