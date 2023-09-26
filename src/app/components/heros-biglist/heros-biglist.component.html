@@ -4,28 +4,27 @@
     <h3>Outros Personagems</h3>
   </header>
 
-
-
   <ul class="list-unstyled d-flex row row-cols-6 mb-4">
 
-    <li class="col" *ngFor="let p of bigListHeroes | paginate : {
+    <li class="col" *ngFor="let personagem of bigListHeroes | paginate : {
                   itemsPerPage: pageSize,
                   currentPage: page,
                   totalItems: count
                 };
-          let i = index">
-      <a class="text-decoration-none link-dark stretched-link" href="">
-        <div class="text-center">
-          <img class="img-fluid rounded-circle mb-1 px-4" src="{{p.image.url}}" alt="..." />
-          <h5 class="fw-bolder txt-white mb-4">{{p.name}}</h5>
-          <!-- <div class="fst-italic txt-white">Founder &amp; CEO</div> -->
-        </div>
-      </a>
+          let i = index" (click)="aoSelecionarPersonagem(personagem)">
+      <!-- <a  class="text-decoration-none link-dark stretched-link" href="#"> -->
+      <div class="text-center">
+        <img class="img-fluid rounded-circle mb-1 px-4" src="{{personagem.image.url}}" alt="..." />
+        <h5 class="fw-bolder txt-white mb-4">{{personagem.name}}</h5>
+        <!-- <div class="fst-italic txt-white">Founder &amp; CEO</div> -->
+      </div>
+      <!-- </a> -->
     </li>
 
 
   </ul>
   <div class="d-flex justify-content-center align-items-center">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls previousLabel="Anterior" nextLabel="Próximo"
+      (pageChange)="page = $event"></pagination-controls>
   </div>
 </section>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Personagem } from 'src/app/model/personagem.model';
 import { ApiheroService } from 'src/app/services/api/apihero.service';
+import { ShareDataService } from 'src/app/services/util/share-data.service';
 
 @Component({
   selector: 'app-big-card',
@@ -11,9 +12,7 @@ export class BigCardComponent implements OnInit {
 
   personagem:Personagem;
 
-  //imagem:string = ""; //https://dummyimage.com/900x400/dee2e6/6c757d.jpg
-
-  constructor(private apiService:ApiheroService) {
+  constructor(private apiService:ApiheroService, private sharedataService:ShareDataService) {
     this.personagem = {
       id : 0,
       name :"",
@@ -27,22 +26,24 @@ export class BigCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sharedataService.currentPersonagem.subscribe(personagem => {
+      this.personagem = personagem;
+    })
 
+    this.carregarPersonagem();
+
+
+  }
+
+  carregarPersonagem(){
     this.apiService.getHeroBigCard(this.gerarIdAleatorioEnetre(1,10))
     .subscribe(data =>{
-       //this.imagem = data.image.url;
-      //console.log(data);
       this.personagem = {
         id: data.id,
         name:data.name,
         image: data.image,
         biography: data.biography
-
       }
-
-     // console.log(this.personagem);
-
-
     })
   }
 

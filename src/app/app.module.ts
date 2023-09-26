@@ -24,8 +24,6 @@ import { HerosBiglistComponent } from './components/heros-biglist/heros-biglist.
     SmallcardItemComponent,
     BigCardComponent,
     HerosBiglistComponent,
-
-
   ],
   imports: [
     BrowserModule,
