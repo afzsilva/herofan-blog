@@ -1,3 +1,7 @@
 .txt-white{
   color: #f1f1f5!important;
 }
+
+li:hover{
+  cursor: pointer;
+}

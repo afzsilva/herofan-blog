@@ -7,9 +7,9 @@ import { ApiheroService } from 'src/app/services/api/apihero.service';
   templateUrl: './smallcard-list.component.html',
   styleUrls: ['./smallcard-list.component.css']
 })
-export class SmallcardListComponent implements OnInit, AfterViewInit {
+export class SmallcardListComponent implements OnInit {
 
-  recentes = new Array<Personagem>(3);
+  recentes:Personagem[] = [];
   personagemRetornado:Personagem;
 
   constructor(private apiService:ApiheroService) {
@@ -26,13 +26,8 @@ export class SmallcardListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
+    this.addTresPersonagems();
   }
-
-  ngAfterViewInit(): void {
-    this.carregarTresUlimos();
-  }
-
 
 
   carregarTresUlimos(){
@@ -55,6 +50,15 @@ export class SmallcardListComponent implements OnInit, AfterViewInit {
       })
 
     }//for
+  }
+
+  addTresPersonagems(){
+    this.apiService.getSmallCardList().subscribe(data =>{
+      for(let i=0; i < 3;i++){
+        this.recentes[i] = data.results[this.gerarIdAleatorioEnetre(0, data.results.length - 1)];
+      }
+
+    })
   }
 
   private gerarIdAleatorioEnetre(inicio:number, fim:number):number{

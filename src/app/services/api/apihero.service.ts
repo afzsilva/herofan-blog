@@ -25,6 +25,9 @@ export class ApiheroService {
     return this.http.get<Personagems<Personagem>>(`${this.getCorsProxiedUrl(this._URL)}/search/${caractere}`);
   }
 
+  getSmallCardList():Observable<Personagems<Personagem>>{
+    return this.http.get<Personagems<Personagem>>(`${this.getCorsProxiedUrl(this._URL)}/search/${"A"}`);
+  }
  private getCorsProxiedUrl(url: string): string
  {
     return `https://thingproxy.freeboard.io/fetch/${url}`;

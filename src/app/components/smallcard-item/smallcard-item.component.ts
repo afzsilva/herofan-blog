@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Personagem } from 'src/app/model/personagem.model';
+import { ShareDataService } from 'src/app/services/util/share-data.service';
 
 @Component({
   selector: 'app-smallcard-item',
@@ -10,14 +11,17 @@ export class SmallcardItemComponent implements OnInit {
 
   @Input() personagemsRecentes:Personagem[] = [];
 
-  constructor() { }
+  constructor(private shareDataService:ShareDataService) { }
 
   ngOnInit(): void {
 
-    console.log("Smallcard Item");
+    //console.log("Smallcard Item");
+    //console.log(this.personagemsRecentes);
 
-    console.log(this.personagemsRecentes);
+  }
 
+  aoSelecionarPersonagem(personagem:Personagem){
+    this.shareDataService.setPersonagem(personagem);
   }
 
 }
